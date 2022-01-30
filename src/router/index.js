@@ -10,7 +10,8 @@ import course from "../views/classes/course.vue";
 import attendence from "../views/attendeance/attendence.vue";
 import payement from "../views/payement/payemnt.vue";
 import dashborad from "../views/dashborad/dashborad.vue";
-import studentpayement from "../views/payement/studentpayement.vue"
+import studentpayement from "../views/payement/studentpayement.vue";
+import payement_reports from "../views/payement/payement_reports.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -23,6 +24,11 @@ const routes = [
     path: "/studentpayement",
     name: "studentpayement",
     component: studentpayement,
+  },
+  {
+    path: "/payement_reports",
+    name: "payement_reports",
+    component: payement_reports,
   },
   {
     path: "/attendence",

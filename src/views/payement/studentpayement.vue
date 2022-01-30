@@ -66,10 +66,19 @@
 				</b-form-group>
 			</div>
 			<div class="col-6">
-				<vue-bootstrap-typeahead
-					v-model="query"
-					:data="['Canada', 'USA', 'Mexico']"
-				/>
+				<b-form-group
+					id="student_name"
+					label="student_name:"
+					label-for="student_name"
+				>
+					<v-select
+						@search="getstufdentsname"
+						v-model="selected_name"
+						:options="students_options"
+						:reduce="(option) => option.id"
+						label="name"
+					></v-select>
+				</b-form-group>
 			</div>
 		</div>
 		<b-table striped hover :items="items" :fields="fields">
@@ -96,6 +105,8 @@ export default {
 	name: "studentpayement",
 	data: function () {
 		return {
+			selected_name: null,
+			students_options: [],
 			new_payement: {
 				id: null,
 				student_id: null,
@@ -148,6 +159,17 @@ export default {
 			console.log(this.new_payement);
 			this.$bvModal.show("studentpaement");
 		},
+		canceladdings() {
+			this.$bvModal.hide("studentpaement");
+		},
+		getstufdentsname(search) {
+			if (search.length > 3) {
+				setHeaderAuth();
+				axios.post("getsearchsedstudent", { name: search }).then((res) => {
+					this.students_options = res.data;
+				});
+			}
+		},
 		makenewpayment() {
 			setHeaderAuth();
 			axios
@@ -168,6 +190,19 @@ export default {
 					this.new_payement.payement_id = "";
 					this.new_payement.student_name = "";
 					this.$bvModal.hide("studentpaement");
+				})
+				.catch(() => {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Something went wrong!",
+						footer: '<a href="">Why do I have this issue?</a>',
+					});
+					this.new_payement.student_id = "";
+					this.new_payement.class_id = "";
+					this.new_payement.payement_id = "";
+					this.new_payement.student_name = "";
+					this.$bvModal.hide("studentpaement");
 				});
 		},
 	},
@@ -178,7 +213,14 @@ export default {
 				this.items = res.data;
 			});
 		},
+		selected_name(val) {
+			axios.get("getstudentdetails?id=" + val).then((res) => {
+				this.items = res.data;
+			});
+		},
 	},
 };
 // @ is an alias to /src
 </script>
+<style>
+</style>

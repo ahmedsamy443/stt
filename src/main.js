@@ -9,9 +9,12 @@ import VueAxios from "vue-axios";
 import VueSweetalert2 from "vue-sweetalert2";
 import swal from "vue-sweetalert2";
 import ToggleButton from "vue-js-toggle-button";
+import vSelect from "vue-select";
+import "vue-select/dist/vue-select.css";
+Vue.component("v-select", vSelect);
+
 import VueBootstrapTypeahead from "vue-bootstrap-typeahead";
 Vue.use(VueBootstrapTypeahead);
-
 Vue.use(ToggleButton);
 
 import { BootstrapVue } from "bootstrap-vue";

@@ -25,13 +25,18 @@
          <img src="/src/assets/logo.png" alt="">
          <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
           
-        
+         <li>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span><router-link to="/dashborad">Dashboard</router-link></a>
+            </li>
             <li class="active">
-               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> students</a>
                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                  <li><a href="#">link1</a></li>
-                  <li><a href="#">link2</a></li>
+                  <li><router-link to="/student">student</router-link></li>
+                  <li><a href="#">students_reports</a></li>
                </ul>
+            </li>
+			 <li>
+               <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span></a>
             </li>
             <li>
                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-flag fa-stack-1x "></i></span>Shortcut</a>
@@ -41,10 +46,10 @@
                </ul>
             </li>
             <li>
-               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span>Overview</a>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-cloud-download fa-stack-1x "></i></span><router-link to="/attendence">Attendance</router-link></a>
             </li>
             <li>
-               <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span>Events</a>
+               <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-cart-plus fa-stack-1x "></i></span><router-link to="/dashborad">classes</router-link></a>
             </li>
             <li>
                <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About</a>

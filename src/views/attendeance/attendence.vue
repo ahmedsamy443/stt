@@ -134,6 +134,7 @@ export default {
 		send_attendece() {},
 
 		ok(row, e) {
+			console.log(e.value);
 			setHeaderAuth();
 			console.log(row.item.id);
 			console.log(e.value);
