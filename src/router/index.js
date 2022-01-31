@@ -12,6 +12,7 @@ import payement from "../views/payement/payemnt.vue";
 import dashborad from "../views/dashborad/dashborad.vue";
 import studentpayement from "../views/payement/studentpayement.vue";
 import payement_reports from "../views/payement/payement_reports.vue";
+import attendence_report from "../views/attendeance/attendence_report.vue"
 Vue.use(VueRouter);
 
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/attendence_report",
+    name: "attendence_report",
+    component: attendence_report,
   },
   {
     path: "/studentpayement",
